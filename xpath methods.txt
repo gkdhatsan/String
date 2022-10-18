@@ -1,0 +1,113 @@
+Locators 
+========
+Locators are used to interact with the WebElement from the webpage.
+By using locators we can identify the exact WebElement from the webpage.
+
+with the help of locators id or type we can identify the exact loactors 
+
+locators id or type             syntax
+=================================================================
+1.id                     ---- driver.findElement(By.id("")) --- unique locator
+2.name                   ---- driver.findElement(By.name(""))--- unique locator
+3.class                  ---- driver.findElement(By.xpath("//tagname[@class='']"))
+4.tagName                ---- driver.findElement(By.tagName(""))
+5.xpath                  ---- driver.findElement(By.xpath(""))
+6.cssSelector            ---- driver.findElement(By.cssSelector(""))
+7.LinkedText             ---- driver.findElement(By.linkedText(""))
+8.PartialLinkedText      ---- driver.findElement(By.partialLinkedText(""))
+
+
+note:
+
+if we are using more than one locator to identify the webelement.don't use simulteniously id and name as locator type.
+
+
+Note:-class ---we cant use direcly a class as locator type (By.class) if we try to use class as direct locator it will throw syntax error.by using xpath only we can use class locator type (By.xpath). because class locator  always mention the concern class.
+
+
+driver.findElement(By.id(""))--- webelement 
+
+""---locators
+By -- AbstactClass
+id--- StaticMethod()--locator type
+
+xpath
+=====
+extensible markup language
+
+if element does not have id and name locator, then we can go for xpath to find the unique element.
+
+types of xpath
+==============
+1.Absolute xpath 
+2.Relative xpath-- xpath axes
+
+1.Absolute xpath (/)
+=================
+finding the element from the root of dom structure to the current element.
+if there is any addition or remove of tagname,it is very difficult to identify the element.
+
+2.Relative xpath(//)xpath axes
+===============================
+ we can identify the element from the current node(current tag name).
+
+syntax
+=======
+//tagname[@attribute name='atributevalue']
+
+if tagname is not know ===> //*[@attribute name='atributevalue']
+
+how can we use xpath
+====================
+any attribute can be used for xpath(id,name,class,text,partial text)
+
+1.//tagname[@id='attributevalue'] == By using id
+2.//tagname[@name='attributevalue']==By using name
+3.//tagname[@class='attributevalue']==By using class
+
+Note:-(We can use index for all Conditions )
+
+
+*********************************************************************************************
+note :if we want to find dynamic xpath mostly we use text and partial text is most preferable
+*********************************************************************************************
+
+4.//tagname[text()='fulltext']  ==== By using text
+
+note
+----
+text is not a attribute, just a parameter.so we dont use @
+
+if we using full text use equal (=) ,otherwise use comma(,)
+
+5.//tagname[contains(text(),'partial text')] === no need to take full text,we can use single word out of  total text for using partial text. 
+
+6.//tagname[contains(@attribute name,'partial attribute value')]=== no need to take full partial attribute value ,we can use single word out of  total value.
+
+7.//tagname[starts-with(text(),'starting text')]=== no need to take full text,we can use only starting text from total text 
+
+8.//tagname[ends-with(text(),'end text')] ==== no need to take full text,we can use only end text from total text 
+
+9.//tagname[starts-with(@attribute name,'starting value')]==== no need to take full attribute value ,we can use only starting value from total value.
+
+10.//tagname[ends-with(@attribute name,'end value')]==== no need to take full attribute value ,we can use only ending value from total value.
+
+11.(//tagname[@class='attribute value'])[2]====when using index can find exact element 
+
+12.//tagname[@class='attributevalue'][text()='fulltext'] ====when we use double xpath we can find accurate element.
+
+13.//tagname[@class='attributevalue' and text()='fulltext'] // both condition should be satisfied
+
+14.//tagname[@class='attributevalue' or text()='fulltext'] // any of one condition should be satisfied
+
+
+
+
+
+
+
+
+
+
+
+
